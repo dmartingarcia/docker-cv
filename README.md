@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Project Description
+
+This CV/Resume web page is built with Next.js and designed to showcase your professional profile using various stylish layouts. The application uses a shared data definition to render your resume content consistently across different views—ranging from modern to classic styles. It is a solid foundation for demonstrating a sophisticated and responsive online resume.
+
+Key Features:
+- Multiple rendering styles: Switch effortlessly between various presentations of your resume.
+- Containerized development: Leverage a Makefile with commands to configure, run, build, and interact with a Docker environment.
+- Modern React optimizations: Built with Next.js for server and client performance improvements.
+- Easily extensible: Adapt and expand the resume layout and data structure to best match your professional narrative.
 
 ## Getting Started
 
-First, run the development server:
+To begin, set up your development environment by cloning the repository and installing the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone <repository-url>
+cd docker-cv
+make run
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser to see the live preview. Modify the `app/page.tsx` file to edit the page—your changes will auto-update in the browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Resume Data Format
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The resume data is defined in a centralized format to ensure consistency across all display styles. This data model includes sections for:
+- Professional experience and education
+- Skills and certifications
+- Projects and achievements
+- Additional personal information
 
-## Learn More
+Each data field is formatted for easy updates, enabling seamless integration with various layout components. This structure supports both detailed and summary views, allowing you to customize how your profile is presented based on the context.
 
-To learn more about Next.js, take a look at the following resources:
+Extra Information:
+- The project is bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+- Consider extending the resume data format by integrating new fields or customizing existing ones to better reflect your personal brand.
+- Explore the Makefile commands for tasks such as linting, testing, and Docker interactions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Happy Coding!
