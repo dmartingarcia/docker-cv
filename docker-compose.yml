@@ -1,0 +1,41 @@
+services:
+  cv:
+    build:
+      dockerfile: Dockerfile
+      target: prod
+    restart: always
+    ports:
+      - 8085:3000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cv.tls=true"
+      - "traefik.http.routers.cv.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.cv.rule=Host(`${HTTP_HOST}`)"
+      - "traefik.http.routers.cv.entrypoints=websecure"
+      - "traefik.port=3000"
+    healthcheck:
+      test: "curl -f http://localhost:3000"
+    networks:
+      - web
+  cv-dev:
+    build:
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - ./:/app
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cv-dev.tls=true"
+      - "traefik.http.routers.cv-dev.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.cv-dev.rule=Host(`cv.apps.${HTTP_HOST}`)"
+      - "traefik.http.routers.cv-dev.entrypoints=websecure"
+      - "traefik.port=3000"
+    ports:
+      - 8086:3000
+    restart: always
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
